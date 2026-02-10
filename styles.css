@@ -59,6 +59,11 @@ a {
   text-decoration: none;
 }
 
+.animate {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
 img {
   max-width: 100%;
   display: block;
@@ -121,12 +126,13 @@ img {
   font-weight: 600;
   border: 1px solid rgba(150, 160, 196, 0.35);
   box-shadow: 0 12px 32px rgba(9, 11, 16, 0.8);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
 }
 
 .btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 16px 40px rgba(9, 11, 16, 0.85);
+  filter: brightness(1.05);
 }
 
 .btn.ghost {
@@ -193,6 +199,20 @@ img {
   border-radius: var(--radius);
   border: 1px solid var(--line);
   box-shadow: 0 40px 80px rgba(7, 7, 9, 0.8);
+}
+
+.hero-media::after {
+  content: "";
+  position: absolute;
+  inset: 12% 8% auto auto;
+  width: 120px;
+  height: 120px;
+  border-radius: 40px;
+  background: radial-gradient(circle at 30% 30%, rgba(150, 170, 220, 0.28), transparent 70%);
+  filter: blur(2px);
+  opacity: 0.7;
+  animation: glowFloat 6s ease-in-out infinite;
+  pointer-events: none;
 }
 
 .media-caption {
@@ -420,11 +440,21 @@ img {
   padding: 12px 14px;
   border-radius: 12px;
   font-family: inherit;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
 }
 
 .form textarea {
   min-height: 120px;
   resize: vertical;
+}
+
+.form input:focus,
+.form select:focus,
+.form textarea:focus {
+  outline: none;
+  border-color: rgba(150, 170, 210, 0.6);
+  box-shadow: 0 0 0 3px rgba(120, 140, 190, 0.2);
+  transform: translateY(-1px);
 }
 
 .footer {
@@ -476,12 +506,18 @@ img {
 .reveal {
   opacity: 0;
   transform: translateY(18px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
+  transition: opacity 0.75s ease, transform 0.75s ease;
+  transition-delay: var(--delay, 0ms);
+  will-change: opacity, transform;
+}
+
+.reveal.pop {
+  transform: translateY(18px) scale(0.98);
 }
 
 .reveal.is-visible {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(0) scale(1);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -503,6 +539,11 @@ img {
   .hero-grid {
     margin-top: 48px;
   }
+
+  .media-caption {
+    bottom: -10px;
+    left: 10px;
+  }
 }
 
 @media (max-width: 600px) {
@@ -514,12 +555,84 @@ img {
     padding: 70px 6vw;
   }
 
+  .logo {
+    gap: 12px;
+  }
+
+  .logo-mark {
+    width: 40px;
+    height: 40px;
+  }
+
+  .logo-sub {
+    letter-spacing: 0.18em;
+  }
+
+  .nav-links {
+    gap: 10px;
+  }
+
+  .nav-links a {
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: rgba(20, 24, 35, 0.65);
+    border: 1px solid rgba(45, 50, 70, 0.6);
+    font-size: 0.85rem;
+  }
+
   .btn {
     width: 100%;
   }
 
   .hero-actions {
     flex-direction: column;
+  }
+
+  .hero-tags {
+    overflow-x: auto;
+    padding-bottom: 6px;
+  }
+
+  .hero-tags span {
+    white-space: nowrap;
+  }
+
+  .hero-media img {
+    border-radius: 18px;
+  }
+
+  .media-caption {
+    position: static;
+    margin-top: 10px;
+    display: inline-flex;
+  }
+
+  .section-head h2 {
+    font-size: clamp(1.8rem, 6vw, 2.2rem);
+  }
+
+  .segment-grid,
+  .proposal-grid,
+  .portfolio-grid,
+  .contact-grid {
+    gap: 14px;
+  }
+
+  .portfolio figure img {
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+  }
+
+  .about-highlights {
+    gap: 14px;
+  }
+
+  .form {
+    padding: 20px;
+  }
+
+  .footer-links {
+    flex-wrap: wrap;
   }
 
   .footer {
@@ -651,6 +764,16 @@ body {
   }
 }
 
+@keyframes glowFloat {
+  0%,
+  100% {
+    transform: translateY(0) translateX(0);
+  }
+  50% {
+    transform: translateY(-6px) translateX(-4px);
+  }
+}
+
 @keyframes pulseFloat {
   0%,
   100% {
@@ -668,6 +791,7 @@ body {
   .hero-actions,
   .hero-tags,
   .hero-media img,
+  .hero-media::after,
   .whatsapp-float {
     animation: none;
   }
