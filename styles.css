@@ -828,13 +828,13 @@ section {
   }
 }
 
-.reveal {
+.reveal:not(.wow) {
   opacity: 0;
   transform: translateY(24px);
   transition: opacity 0.75s ease, transform 0.75s ease;
 }
 
-.reveal.is-visible {
+.reveal:not(.wow).is-visible {
   opacity: 1;
   transform: none;
 }
@@ -914,6 +914,7 @@ section {
     align-items: center;
     justify-items: stretch;
     padding: 12px;
+    backdrop-filter: none;
   }
 
   .brand {
@@ -1036,6 +1037,20 @@ section {
 
   .particles-bg {
     opacity: 0.48;
+  }
+
+  .stat-card::before,
+  .project::before,
+  .step::before,
+  .contact-panel::before,
+  .form::before {
+    animation: none;
+    opacity: 0.32;
+  }
+
+  .reveal {
+    transform: translateY(12px);
+    transition-duration: 0.45s;
   }
 }
 

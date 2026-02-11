@@ -283,7 +283,8 @@
   <script>
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const isFinePointer = window.matchMedia('(pointer:fine)').matches;
-    const isMobile = window.matchMedia('(max-width: 760px)').matches;
+    const isMobileMedia = window.matchMedia('(max-width: 760px)');
+    const isMobile = isMobileMedia.matches;
 
     const particleCanvas = document.querySelector('.particles-bg');
     if (particleCanvas && !reduceMotion) {
@@ -296,9 +297,12 @@
         let rafId = 0;
         let running = !document.hidden;
 
-        const baseCount = isMobile ? 26 : 48;
+        const baseCount = isMobile ? 14 : 36;
         const cpuFactor = (navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 4) ? 0.75 : 1;
-        const particleCount = Math.max(16, Math.floor(baseCount * cpuFactor));
+        const particleCount = Math.max(10, Math.floor(baseCount * cpuFactor));
+        const targetFps = isMobile ? 24 : 45;
+        const frameInterval = 1000 / targetFps;
+        let lastFrameTime = 0;
 
         const resizeCanvas = () => {
           dpr = Math.min(window.devicePixelRatio || 1, 1.5);
@@ -324,8 +328,13 @@
           particles = Array.from({ length: particleCount }, randomParticle);
         };
 
-        const draw = () => {
+        const draw = (now = 0) => {
           if (!running) return;
+          if (now - lastFrameTime < frameInterval) {
+            rafId = requestAnimationFrame(draw);
+            return;
+          }
+          lastFrameTime = now;
           ctx.clearRect(0, 0, width, height);
           for (let i = 0; i < particles.length; i += 1) {
             const p = particles[i];
@@ -351,6 +360,7 @@
             return;
           }
           cancelAnimationFrame(rafId);
+          lastFrameTime = 0;
           draw();
         };
 
@@ -383,7 +393,16 @@
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
 
-    const revealItems = document.querySelectorAll('.reveal');
+    if (isMobile) {
+      document.querySelectorAll('.wow').forEach((el) => {
+        el.classList.remove('wow');
+        [...el.classList].forEach((className) => {
+          if (className.startsWith('animate__')) el.classList.remove(className);
+        });
+      });
+    }
+
+    const revealItems = document.querySelectorAll('.reveal:not(.wow)');
     if (supportsIO) {
       const revealObserver = new IntersectionObserver((entries, obs) => {
         entries.forEach((entry) => {
@@ -530,12 +549,12 @@
       });
     });
 
-    if (!reduceMotion && typeof WOW !== 'undefined') {
+    if (!reduceMotion && !isMobile && typeof WOW !== 'undefined') {
       new WOW({
         boxClass: 'wow',
         animateClass: 'animate__animated',
         offset: 80,
-        mobile: true,
+        mobile: false,
         live: true
       }).init();
     }
