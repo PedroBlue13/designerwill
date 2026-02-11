@@ -70,7 +70,7 @@
     </nav>
 
     <div class="hero-content shell">
-      <div class="hero-copy reveal wow animate__animated animate__fadeInUp" data-wow-delay="0.10s">
+      <div class="hero-copy reveal " data-wow-delay="0.10s">
         <p class="kicker">Alta Curadoria de Ambientes</p>
         <h1>Design de interiores de luxo com precisão técnica e impacto sensorial.</h1>
         <p>
@@ -78,8 +78,8 @@
           luz arquitetada e uma assinatura estética que valoriza sua rotina e seu patrimônio.
         </p>
         <div class="hero-actions">
-          <a class="btn btn-primary magnetic" href="#contato">Solicitar proposta</a>
-          <a class="btn btn-ghost magnetic" href="#portfolio">Explorar projetos</a>
+          <a class="btn btn-primary magnetic wow animate__animated animate__flipInX" href="#contato">Solicitar proposta</a>
+          <a class="btn btn-ghost magnetic wow animate__animated animate__flipInX animate__delay-1s" href="#portfolio">Explorar projetos</a>
         </div>
         <div class="chip-row">
           <span>Residencial Premium</span>
@@ -393,15 +393,6 @@
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
 
-    if (isMobile) {
-      document.querySelectorAll('.wow').forEach((el) => {
-        el.classList.remove('wow');
-        [...el.classList].forEach((className) => {
-          if (className.startsWith('animate__')) el.classList.remove(className);
-        });
-      });
-    }
-
     const revealItems = document.querySelectorAll('.reveal:not(.wow)');
     if (supportsIO) {
       const revealObserver = new IntersectionObserver((entries, obs) => {
@@ -549,13 +540,13 @@
       });
     });
 
-    if (!reduceMotion && !isMobile && typeof WOW !== 'undefined') {
+    if (!reduceMotion && typeof WOW !== 'undefined') {
       new WOW({
         boxClass: 'wow',
         animateClass: 'animate__animated',
         offset: 80,
-        mobile: false,
-        live: true
+        mobile: true,
+        live: false
       }).init();
     }
 
