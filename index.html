@@ -41,6 +41,7 @@
       <path fill="currentColor" d="M12.04 2A9.94 9.94 0 0 0 3.5 16.99L2 22l5.17-1.46A10 10 0 1 0 12.04 2m0 18.2a8.2 8.2 0 0 1-4.19-1.15l-.3-.18l-3.07.87l.9-2.99l-.2-.31a8.17 8.17 0 1 1 6.86 3.76m4.48-5.98c-.24-.12-1.42-.7-1.64-.77c-.22-.08-.38-.12-.54.12c-.16.23-.62.77-.76.92c-.14.16-.28.18-.52.06a6.66 6.66 0 0 1-1.95-1.2a7.35 7.35 0 0 1-1.35-1.67c-.14-.24 0-.37.1-.5c.1-.1.23-.27.34-.4c.12-.14.16-.24.24-.4c.08-.16.04-.3-.02-.43c-.06-.12-.54-1.31-.74-1.8c-.2-.46-.4-.4-.54-.41h-.46c-.16 0-.43.06-.66.3c-.22.24-.84.82-.84 2s.86 2.33.98 2.5c.12.16 1.69 2.58 4.1 3.62c.57.25 1.02.4 1.37.51c.58.18 1.1.16 1.52.1c.46-.07 1.42-.58 1.62-1.14c.2-.56.2-1.04.14-1.14c-.06-.1-.22-.16-.46-.28"></path>
     </symbol>
   </svg>
+  <canvas class="particles-bg" aria-hidden="true"></canvas>
   <div class="scroll-progress" aria-hidden="true"></div>
   <div class="cursor-dot" aria-hidden="true"></div>
   <div class="cursor-ring" aria-hidden="true"></div>
@@ -282,6 +283,88 @@
   <script>
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const isFinePointer = window.matchMedia('(pointer:fine)').matches;
+    const isMobile = window.matchMedia('(max-width: 760px)').matches;
+
+    const particleCanvas = document.querySelector('.particles-bg');
+    if (particleCanvas && !reduceMotion) {
+      const ctx = particleCanvas.getContext('2d', { alpha: true });
+      if (ctx) {
+        let width = 0;
+        let height = 0;
+        let dpr = 1;
+        let particles = [];
+        let rafId = 0;
+        let running = !document.hidden;
+
+        const baseCount = isMobile ? 26 : 48;
+        const cpuFactor = (navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 4) ? 0.75 : 1;
+        const particleCount = Math.max(16, Math.floor(baseCount * cpuFactor));
+
+        const resizeCanvas = () => {
+          dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+          width = window.innerWidth;
+          height = window.innerHeight;
+          particleCanvas.width = Math.floor(width * dpr);
+          particleCanvas.height = Math.floor(height * dpr);
+          particleCanvas.style.width = `${width}px`;
+          particleCanvas.style.height = `${height}px`;
+          ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        };
+
+        const randomParticle = () => ({
+          x: Math.random() * width,
+          y: Math.random() * height,
+          r: Math.random() * 1.8 + 0.6,
+          vx: (Math.random() - 0.5) * 0.12,
+          vy: (Math.random() - 0.5) * 0.14,
+          a: Math.random() * 0.35 + 0.12
+        });
+
+        const initParticles = () => {
+          particles = Array.from({ length: particleCount }, randomParticle);
+        };
+
+        const draw = () => {
+          if (!running) return;
+          ctx.clearRect(0, 0, width, height);
+          for (let i = 0; i < particles.length; i += 1) {
+            const p = particles[i];
+            p.x += p.vx;
+            p.y += p.vy;
+            if (p.x < -8) p.x = width + 8;
+            if (p.x > width + 8) p.x = -8;
+            if (p.y < -8) p.y = height + 8;
+            if (p.y > height + 8) p.y = -8;
+
+            ctx.beginPath();
+            ctx.fillStyle = `rgba(232, 200, 142, ${p.a})`;
+            ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+            ctx.fill();
+          }
+          rafId = requestAnimationFrame(draw);
+        };
+
+        const onVisibility = () => {
+          running = !document.hidden;
+          if (!running) {
+            cancelAnimationFrame(rafId);
+            return;
+          }
+          cancelAnimationFrame(rafId);
+          draw();
+        };
+
+        resizeCanvas();
+        initParticles();
+        draw();
+
+        window.addEventListener('resize', () => {
+          resizeCanvas();
+          initParticles();
+        }, { passive: true });
+        document.addEventListener('visibilitychange', onVisibility);
+      }
+    }
 
     const progress = document.querySelector('.scroll-progress');
     const supportsIO = 'IntersectionObserver' in window;
