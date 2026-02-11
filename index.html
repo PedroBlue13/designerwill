@@ -1,259 +1,344 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Will Blue Konig — Designer de Interiores</title>
+  <title>Will Blue Konig | Interior Design Atelier</title>
+  <meta name="description" content="Atelier premium de interiores para projetos residenciais, comerciais e corporativos com assinatura autoral." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://images.unsplash.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Syne:wght@400;500;700;800&display=swap" rel="stylesheet" />
+  <link rel="preload" as="image" href="https://images.unsplash.com/photo-1502005097973-6a7082348e28?q=80&w=1400&auto=format&fit=crop" />
   <link rel="stylesheet" href="styles.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" />
 </head>
 <body>
+  <div class="scroll-progress" aria-hidden="true"></div>
+  <div class="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
+
   <header class="hero" id="topo">
-    <nav class="nav">
-      <div class="logo">
-        <div class="logo-mark"></div>
-        <div>
-          <div class="logo-name">Will Blue Konig</div>
-          <div class="logo-sub">Design de Interiores</div>
-        </div>
-      </div>
+    <div class="ambient ambient-a" aria-hidden="true"></div>
+    <div class="ambient ambient-b" aria-hidden="true"></div>
+
+    <nav class="nav shell">
+      <a class="brand" href="#topo" aria-label="Página inicial">
+        <span class="brand-mark"></span>
+        <span>
+          <strong>Will Blue Konig</strong>
+          <small>Interior Design Atelier</small>
+        </span>
+      </a>
       <div class="nav-links">
-        <a href="#sobre">Sobre</a>
-        <a href="#servicos">Serviços</a>
         <a href="#portfolio">Portfólio</a>
+        <a href="#processo">Método</a>
+        <a href="#sobre">Atelier</a>
+        <a class="nav-cta" href="#contato">Agendar visita</a>
       </div>
     </nav>
 
-    <div class="hero-grid">
-      <div class="hero-copy reveal" style="--delay: 60ms;">
-        <p class="eyebrow" style="--delay: 120ms;">Arquitetura e Interiores</p>
-        <h1>Transforme seu espaço em um ambiente elegante, funcional e sob medida.</h1>
-        <p class="lead">
-          Projetos de interiores residenciais, comerciais e corporativos com
-          identidade, conforto e um olhar autoral para luz, matéria e proporção.
+    <div class="hero-content shell">
+      <div class="hero-copy reveal">
+        <p class="kicker">Alta Curadoria de Ambientes</p>
+        <h1>Design de interiores de luxo com precisão técnica e impacto sensorial.</h1>
+        <p>
+          Transformamos imóveis em experiências memoráveis: materiais nobres,
+          luz arquitetada e uma assinatura estética que valoriza sua rotina e seu patrimônio.
         </p>
-        <div class="hero-actions" style="--delay: 220ms;">
-          <a class="btn wow animate animate__fadeInDown" href="#contato">Solicitar atendimento</a>
-          <a class="btn ghost" href="#portfolio">Ver portfólio</a>
+        <div class="hero-actions">
+          <a class="btn btn-primary magnetic" href="#contato">Solicitar proposta</a>
+          <a class="btn btn-ghost magnetic" href="#portfolio">Explorar projetos</a>
         </div>
-        <div class="hero-tags" style="--delay: 300ms;">
-          <span>Residencial</span>
-          <span>Comercial</span>
-          <span>Corporativo</span>
+        <div class="chip-row">
+          <span>Residencial Premium</span>
+          <span>Hospitality & Retail</span>
+          <span>Corporate Signature</span>
         </div>
       </div>
-      <div class="hero-media reveal" style="--delay: 140ms;">
+
+      <figure class="hero-visual reveal tilt">
         <img
-          alt="Sala de estar com luz suave e textura escura"
-          src="https://images.unsplash.com/photo-1502005097973-6a7082348e28?q=80&w=1200&auto=format&fit=crop"
+          src="https://images.unsplash.com/photo-1502005097973-6a7082348e28?q=80&w=1400&auto=format&fit=crop"
+          alt="Living sofisticado com iluminação cênica"
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
         />
-        <div class="media-caption">Projeto real, resultado real.</div>
-      </div>
+        <figcaption>
+          <strong>Skyline Penthouse</strong>
+          <span>São Paulo, Brasil</span>
+        </figcaption>
+      </figure>
     </div>
   </header>
 
-  <section class="section reveal" id="segmentos">
-    <div class="section-head">
-      <h2>Atuamos em diferentes segmentos</h2>
-      <p>Sempre respeitando o objetivo e a identidade de cada cliente.</p>
+  <section class="stats shell reveal" aria-label="Indicadores do estúdio">
+    <article class="stat-card tilt">
+      <h2 data-count="186">0</h2>
+      <p>Projetos executados com acompanhamento técnico completo.</p>
+    </article>
+    <article class="stat-card tilt">
+      <h2 data-count="9">0</h2>
+      <p>Anos criando narrativas espaciais para clientes exigentes.</p>
+    </article>
+    <article class="stat-card tilt">
+      <h2 data-count="96">0</h2>
+      <p>% de clientes por indicação direta e recompra de serviços.</p>
+    </article>
+    <article class="stat-card tilt">
+      <h2 data-count="21">0</h2>
+      <p>Reconhecimentos em mostras e publicações do setor.</p>
+    </article>
+  </section>
+
+  <section class="portfolio shell" id="portfolio">
+    <div class="section-head reveal">
+      <p class="kicker">Portfólio Curado</p>
+      <h2>Projetos que equilibram arte, função e valorização imobiliária.</h2>
     </div>
-    <div class="segment-grid">
-      <article class="segment reveal pop" style="--delay: 80ms;">
-        <span class="segment-icon">⌂</span>
-        <h3>Residencial</h3>
-        <p>Casas e apartamentos, reformas, ambientações e projetos completos.</p>
+    <div class="masonry">
+      <article class="project reveal tilt wide">
+        <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?q=80&w=1500&auto=format&fit=crop" alt="Sala com mobiliário contemporâneo" loading="lazy" decoding="async" />
+        <div>
+          <h3>Maison Lumière</h3>
+          <p>Apartamento com paleta mineral, marcenaria de alto padrão e automação discreta.</p>
+        </div>
       </article>
-      <article class="segment reveal pop" style="--delay: 160ms;">
-        <span class="segment-icon">◇</span>
-        <h3>Comercial</h3>
-        <p>Lojas, cafés, clínicas e espaços de atendimento com presença de marca.</p>
+      <article class="project reveal tilt tall">
+        <img src="https://images.unsplash.com/photo-1615874959474-d609969a20ed?q=80&w=1200&auto=format&fit=crop" alt="Suíte de hotel boutique" loading="lazy" decoding="async" />
+        <div>
+          <h3>Boutique Aurora</h3>
+          <p>Hospitalidade com atmosfera intimista e iluminação multicamadas.</p>
+        </div>
       </article>
-      <article class="segment reveal pop" style="--delay: 240ms;">
-        <span class="segment-icon">▣</span>
-        <h3>Corporativo</h3>
-        <p>Escritórios, advocacia, consultórios e stands com performance.</p>
+      <article class="project reveal tilt">
+        <img src="https://images.unsplash.com/photo-1618220179428-22790b461013?q=80&w=1200&auto=format&fit=crop" alt="Cozinha gourmet de luxo" loading="lazy" decoding="async" />
+        <div>
+          <h3>Gourmet Slate</h3>
+          <p>Conceito social integrado com metais escovados e pedra natural.</p>
+        </div>
+      </article>
+      <article class="project reveal tilt">
+        <img src="https://images.unsplash.com/photo-1616137422495-1e9e46e2aa77?q=80&w=1200&auto=format&fit=crop" alt="Escritório corporativo de alto padrão" loading="lazy" decoding="async" />
+        <div>
+          <h3>Boardroom 17</h3>
+          <p>Projeto corporativo focado em performance, acústica e reputação de marca.</p>
+        </div>
       </article>
     </div>
   </section>
 
-  <section class="section proposal reveal" id="servicos">
-    <div class="section-head">
-      <h2>Nossa proposta</h2>
-      <p>Crio soluções inteligentes, funcionais e aconchegantes para você viver melhor.</p>
+  <section class="process shell" id="processo">
+    <div class="section-head reveal">
+      <p class="kicker">Método do Atelier</p>
+      <h2>Uma jornada de design clara, com tecnologia e controle em cada etapa.</h2>
     </div>
-    <div class="proposal-grid">
-      <div class="proposal-item wow animate animate__flipInX" data-wow-delay="0.1s">Projetos completos de interiores</div>
-      <div class="proposal-item wow animate animate__flipInX" data-wow-delay="0.2s">Decoração e ambientação com curadoria</div>
-      <div class="proposal-item wow animate animate__flipInX" data-wow-delay="0.3s">Reformas e acompanhamento</div>
-      <div class="proposal-item wow animate animate__flipInX" data-wow-delay="0.4s">Consultorias de estilo e layout</div>
-      <div class="proposal-item wow animate animate__flipInX" data-wow-delay="0.5s">Iluminação estratégica</div>
-      <div class="proposal-item wow animate animate__flipInX" data-wow-delay="0.6s">Residencial, comercial e corporativo</div>
-    </div>
-  </section>
-
-  <section class="section portfolio reveal" id="portfolio">
-    <div class="section-head">
-      <h2>Projetos reais, resultados reais</h2>
-      <p>Seleção de ambientes com paleta escura, luz cênica e textura rica.</p>
-    </div>
-    <div class="portfolio-grid">
-      <figure class="reveal pop" style="--delay: 80ms;">
-        <img alt="Cozinha escura com ilha de pedra" src="https://images.unsplash.com/photo-1484154218962-a197022b5858?q=80&w=1200&auto=format&fit=crop" />
-        <figcaption>Loft Ônix · Cozinha</figcaption>
-      </figure>
-      <figure class="reveal pop" style="--delay: 170ms;">
-        <img alt="Sala com iluminação indireta" src="https://images.unsplash.com/photo-1501045661006-fcebe0257c3f?q=80&w=1200&auto=format&fit=crop" />
-        <figcaption>Residência Neblina · Estar</figcaption>
-      </figure>
-      <figure class="reveal pop" style="--delay: 260ms;">
-        <img alt="Suíte com atmosfera noturna" src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?q=80&w=1200&auto=format&fit=crop" />
-        <figcaption>Suite Eclipse · Quarto</figcaption>
-      </figure>
+    <div class="timeline">
+      <article class="step reveal">
+        <span>01</span>
+        <h3>Imersão estratégica</h3>
+        <p>Briefing avançado, leitura de hábitos e diretrizes de investimento para decisões assertivas.</p>
+      </article>
+      <article class="step reveal">
+        <span>02</span>
+        <h3>Conceito visual 3D</h3>
+        <p>Moodboards autorais, estudo volumétrico e pré-visualização realista do resultado final.</p>
+      </article>
+      <article class="step reveal">
+        <span>03</span>
+        <h3>Compatibilização técnica</h3>
+        <p>Detalhamento executivo, paginações, marcenaria, iluminação e especificações de fornecedores.</p>
+      </article>
+      <article class="step reveal">
+        <span>04</span>
+        <h3>Gestão e entrega premium</h3>
+        <p>Acompanhamento de obra e finalização com styling completo para operação imediata.</p>
+      </article>
     </div>
   </section>
 
-  <section class="section about reveal" id="sobre">
+  <section class="about shell" id="sobre">
     <div class="about-grid">
-      <div>
-        <h2>Quem é Will Blue Konig</h2>
+      <figure class="about-photo reveal tilt">
+        <img src="logo.jpg" alt="Assinatura visual do estúdio" loading="lazy" decoding="async" />
+      </figure>
+      <div class="about-copy reveal">
+        <p class="kicker">Assinatura Will Blue Konig</p>
+        <h2>Estética refinada sem perder funcionalidade, conforto e personalidade.</h2>
         <p>
-          Designer de interiores especializado em criar ambientes intensos e
-          acolhedores. Une técnica, sensibilidade e estética para transformar a
-          rotina das pessoas com projetos de interiores completos, consultorias
-          e acompanhamento de obra.
+          Nosso atelier opera com visão arquitetônica, sensibilidade artística e gestão disciplinada.
+          Cada escolha de material, proporção e luz é orientada para elevar a experiência do cliente.
         </p>
-        <div class="about-highlights">
-          <div class="reveal" style="--delay: 80ms;">
-            <strong>+120</strong>
-            <span>Projetos assinados</span>
-          </div>
-          <div class="reveal" style="--delay: 150ms;">
-            <strong>8 anos</strong>
-            <span>Atuação autoral</span>
-          </div>
-          <div class="reveal" style="--delay: 220ms;">
-            <strong>14</strong>
-            <span>Prêmios de design</span>
-          </div>
-        </div>
+        <blockquote>
+          "Luxo verdadeiro é quando a casa responde ao seu ritmo com naturalidade e presença."
+        </blockquote>
       </div>
-      <img
-        alt="Designer em estúdio com amostras de materiais"
-        src="https://images.unsplash.com/photo-1452860606245-08befc0ff44b?q=80&w=1200&auto=format&fit=crop"
-      />
     </div>
   </section>
 
-  <section class="section faq reveal" id="faq">
-    <div class="section-head">
-      <h2>Dúvidas frequentes</h2>
-      <p>Respostas rápidas para começar com clareza.</p>
-    </div>
-    <div class="faq-list">
-      <details open class="reveal" style="--delay: 80ms;">
-        <summary>Quais tipos de projetos você realiza?</summary>
-        <p>Interiores completos, decoração, consultoria, reformas e projetos comerciais ou corporativos.</p>
-      </details>
-      <details class="reveal" style="--delay: 160ms;">
-        <summary>Você acompanha obra?</summary>
-        <p>Sim. Posso acompanhar presencialmente ou por consultoria contínua.</p>
-      </details>
-      <details class="reveal" style="--delay: 240ms;">
-        <summary>Preciso de um imóvel novo para contratar?</summary>
-        <p>Não. Reformo, atualizo e reorganizo qualquer ambiente existente.</p>
-      </details>
-    </div>
-  </section>
-
-  <section class="section contact reveal" id="contato">
-    <div class="contact-grid">
+  <section class="contact shell" id="contato">
+    <div class="contact-panel reveal">
       <div>
-        <h2>Solicite um atendimento</h2>
-        <p>Receba uma proposta personalizada em até 48h.</p>
-        <div class="contact-info">
-          <div class="reveal" style="--delay: 80ms;">
-            <span>Studio</span>
-            <strong>Rua das Camadas 29, São Paulo</strong>
-          </div>
-          <div class="reveal" style="--delay: 160ms;">
-            <span>Email</span>
-            <strong>contato@willbluekonig.com</strong>
-          </div>
-          <div class="reveal" style="--delay: 240ms;">
-            <span>Telefone</span>
-            <strong>+55 11 99999-2026</strong>
-          </div>
-        </div>
+        <p class="kicker">Atendimento Privativo</p>
+        <h2>Solicite um conceito inicial para o seu projeto.</h2>
+        <p>Retorno em até 48h com direcionamento estratégico, faixa de investimento e próximos passos.</p>
+        <ul>
+          <li>São Paulo e projetos nacionais</li>
+          <li>Residencial, comercial e corporativo</li>
+          <li>Consultoria presencial e remota</li>
+        </ul>
       </div>
-      <form class="form reveal" style="--delay: 160ms;">
+      <form class="form" aria-label="Formulário de contato">
         <label>
           Nome
-          <input type="text" placeholder="Seu nome" />
+          <input type="text" placeholder="Seu nome" required />
         </label>
         <label>
-          Email
-          <input type="email" placeholder="voce@email.com" />
+          E-mail
+          <input type="email" placeholder="voce@email.com" required />
         </label>
         <label>
-          Tipo de projeto
-          <select>
-            <option>Residencial</option>
-            <option>Comercial</option>
-            <option>Corporativo</option>
+          Faixa de investimento
+          <select required>
+            <option value="">Selecione</option>
+            <option>R$ 80 mil a R$ 150 mil</option>
+            <option>R$ 150 mil a R$ 300 mil</option>
+            <option>Acima de R$ 300 mil</option>
           </select>
         </label>
         <label>
-          Mensagem
-          <textarea placeholder="Conte sobre o seu espaço"></textarea>
+          Projeto
+          <textarea placeholder="Descreva o ambiente e o objetivo"></textarea>
         </label>
-        <button type="submit" class="btn">Enviar</button>
+        <button class="btn btn-primary magnetic" type="submit">Enviar solicitação</button>
       </form>
     </div>
   </section>
 
-  <footer class="footer">
-    <div>© 2026 Will Blue Konig — Todos os direitos reservados.</div>
-    <div class="footer-links">
+  <footer class="footer shell">
+    <p>© 2026 Will Blue Konig. Todos os direitos reservados.</p>
+    <div>
       <a href="#topo">Topo</a>
       <a href="#portfolio">Portfólio</a>
-      <a href="#contato">Contato</a>
+      <a href="https://wa.me/554791831888?text=Ol%C3%A1%2C%20gostaria%20de%20iniciar%20um%20projeto%20de%20interiores." target="_blank" rel="noopener noreferrer">WhatsApp</a>
     </div>
   </footer>
 
-  <a
-    class="whatsapp-float"
-    href="https://wa.me/554791831888?text=Gostaria%20de%20fazer%20um%20projeto"
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="Falar no WhatsApp"
-  >
-    <span>WhatsApp</span>
-  </a>
-
   <script>
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-            observer.unobserve(entry.target);
-          }
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const isFinePointer = window.matchMedia('(pointer:fine)').matches;
+
+    const progress = document.querySelector('.scroll-progress');
+    const onScroll = () => {
+      const scrollTop = window.scrollY;
+      const height = document.documentElement.scrollHeight - window.innerHeight;
+      const value = height > 0 ? (scrollTop / height) * 100 : 0;
+      progress.style.transform = `scaleX(${value / 100})`;
+    };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    const revealItems = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries, obs) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-visible');
+        obs.unobserve(entry.target);
+      });
+    }, { threshold: 0.2 });
+    revealItems.forEach((el) => revealObserver.observe(el));
+
+    const counters = document.querySelectorAll('[data-count]');
+    const counterObserver = new IntersectionObserver((entries, obs) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        const goal = Number(el.dataset.count) || 0;
+        const duration = 1200;
+        const start = performance.now();
+
+        const tick = (now) => {
+          const elapsed = now - start;
+          const progressValue = Math.min(elapsed / duration, 1);
+          const eased = 1 - Math.pow(1 - progressValue, 3);
+          el.textContent = Math.round(goal * eased).toString();
+          if (progressValue < 1) requestAnimationFrame(tick);
+        };
+
+        requestAnimationFrame(tick);
+        obs.unobserve(el);
+      });
+    }, { threshold: 0.5 });
+    counters.forEach((counter) => counterObserver.observe(counter));
+
+    const tilts = document.querySelectorAll('.tilt');
+    if (!reduceMotion && isFinePointer) {
+      tilts.forEach((card) => {
+        card.addEventListener('mousemove', (event) => {
+          const rect = card.getBoundingClientRect();
+          const x = (event.clientX - rect.left) / rect.width;
+          const y = (event.clientY - rect.top) / rect.height;
+          const rotateX = (0.5 - y) * 10;
+          const rotateY = (x - 0.5) * 12;
+          card.style.transform = `perspective(1200px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(0)`;
         });
-      },
-      { threshold: 0.18 }
-    );
 
-    document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/wow.js@1.2.2/dist/wow.min.js"></script>
-  <script>
-    new WOW({
-      boxClass: 'wow',
-      animateClass: 'animate',
-      offset: 80,
-      mobile: true,
-      live: true
-    }).init();
+        card.addEventListener('mouseleave', () => {
+          card.style.transform = '';
+        });
+      });
+    }
+
+    const heroVisual = document.querySelector('.hero-visual img');
+    if (heroVisual && !reduceMotion && isFinePointer) {
+      window.addEventListener('mousemove', (event) => {
+        const x = (event.clientX / window.innerWidth - 0.5) * 8;
+        const y = (event.clientY / window.innerHeight - 0.5) * 8;
+        heroVisual.style.transform = `scale(1.04) translate(${x * -0.6}px, ${y * -0.4}px)`;
+      }, { passive: true });
+    }
+
+    const dot = document.querySelector('.cursor-dot');
+    const ring = document.querySelector('.cursor-ring');
+
+    if (dot && ring && isFinePointer && !reduceMotion) {
+      let mouseX = 0;
+      let mouseY = 0;
+      let ringX = 0;
+      let ringY = 0;
+
+      window.addEventListener('mousemove', (event) => {
+        mouseX = event.clientX;
+        mouseY = event.clientY;
+        dot.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
+      });
+
+      const animateRing = () => {
+        ringX += (mouseX - ringX) * 0.18;
+        ringY += (mouseY - ringY) * 0.18;
+        ring.style.transform = `translate(${ringX}px, ${ringY}px)`;
+        requestAnimationFrame(animateRing);
+      };
+      animateRing();
+
+      document.querySelectorAll('a, button, .tilt').forEach((target) => {
+        target.addEventListener('mouseenter', () => ring.classList.add('active'));
+        target.addEventListener('mouseleave', () => ring.classList.remove('active'));
+      });
+    }
+
+    document.querySelectorAll('.magnetic').forEach((element) => {
+      if (reduceMotion || !isFinePointer) return;
+      element.addEventListener('mousemove', (event) => {
+        const rect = element.getBoundingClientRect();
+        const x = ((event.clientX - rect.left) / rect.width - 0.5) * 10;
+        const y = ((event.clientY - rect.top) / rect.height - 0.5) * 10;
+        element.style.transform = `translate(${x}px, ${y}px)`;
+      });
+      element.addEventListener('mouseleave', () => {
+        element.style.transform = '';
+      });
+    });
   </script>
 </body>
 </html>
